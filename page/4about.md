@@ -11,7 +11,7 @@ type: page
 
 ## 关于我
 
- <img src="Me.jpg" alt="Me"> 
+ <img src="https://github.com/love-douya/love-douya.github.io/tree/master/page/Me.jpg" alt="Me" height="400" width="400"> 
 
 Computer Science
 
