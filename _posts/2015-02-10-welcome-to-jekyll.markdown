@@ -1,32 +1,35 @@
 ---
 layout: post
-title:  "hello jekyll!"
-date:   2015-02-10 15:14:54
-categories: jekyll
-tags: jekyll
-excerpt: 当年创建 jekyll 时默认的一篇文章，没什么意义，我也一直没删除，留个纪念吧。
+title:  "BFS"
+date:   2018-3-10 12:44:00
+categories: Algorithm
+tags: Algorithm
+excerpt: BFS in Python
 mathjax: true
 ---
+Use a queue to implement this algorithm. If weight of each edge is same, we can use only BFS to traverse the graph to achieve shortest path. In dijkstra with adjacency list, BFS is used when we traverse the graph.
 
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+*** The loop version of BFS
+```python
+graph = {'A': set(['B', 'C']),
+         'B': set(['A', 'D', 'E']),
+         'C': set(['A', 'F']),
+         'D': set(['B']),
+         'E': set(['B', 'F']),
+         'F': set(['C', 'E'])}
 
-Jekyll also offers powerful support for code snippets:
+def bfs(graph, start):
+    visited, queue = set(), [start]
+    while queue:
+        vertex = queue.pop(0)
+        if vertex not in visited:
+            visited.add(vertex)
+            queue.extend(graph[vertex] - visited)
+    return visited
 
-```ruby
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
+print(bfs(graph, 'A'))# {'B', 'C', 'A', 'F', 'D', 'E'}
 ```
-
-Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
-
-[jekyll]:      http://jekyllrb.com
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-help]: https://github.com/jekyll/jekyll-help
 
 Block Mathjax 
 
