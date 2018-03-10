@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>BFS</title>
-    <meta name="description" content="BFS&DFS in Python">
+    <title>BFS&amp;DFS in Python</title>
+    <meta name="description" content="  SummarySummaryUse a queue to implement this algorithm. If weight of each edge is same, we can use only BFS to traverse the graph to achieve shortest path. ...">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
@@ -43,18 +43,6 @@
     </script>
 
 
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
-    "HTML-CSS": {
-      linebreaks: { automatic: true, width: "container" }
-    }
-});
-</script>
-<script type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 
 </head>
 
@@ -141,7 +129,7 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>BFS</h1>
+        <h1>BFS&DFS in Python</h1>
         <div class="label">
 
             <div class="label-card">
@@ -194,74 +182,134 @@
         </div>
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
-        
+        <ul id="markdown-toc">
+  <li><a href="#summary" id="markdown-toc-summary">Summary</a></li>
+</ul>
+
+<h2 id="summary">Summary</h2>
 <p>Use a queue to implement this algorithm. If weight of each edge is same, we can use only BFS to traverse the graph to achieve shortest path. In dijkstra with adjacency list, BFS is used when we traverse the graph.</p>
 
 <ul>
-  <li>The loop version of BFS
-```python
-graph = {‘A’: set([‘B’, ‘C’]),
-       ‘B’: set([‘A’, ‘D’, ‘E’]),
-       ‘C’: set([‘A’, ‘F’]),
-       ‘D’: set([‘B’]),
-       ‘E’: set([‘B’, ‘F’]),
-       ‘F’: set([‘C’, ‘E’])}</li>
+  <li>Initialize a graph with dic using set as value</li>
 </ul>
 
-<p>def bfs(graph, start):
-    visited, queue = set(), [start]
-    while queue:
-        vertex = queue.pop(0)
-        if vertex not in visited:
-            visited.add(vertex)
-            queue.extend(graph[vertex] - visited)
-    return visited</p>
-
-<p>print(bfs(graph, ‘A’))# {‘B’, ‘C’, ‘A’, ‘F’, ‘D’, ‘E’}</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-* Use generator to return all of the paths when implementing BFS
-
-```Python
-graph = {'A': set(['B', 'C']),
-         'B': set(['A', 'D', 'E']),
-         'C': set(['A', 'F']),
-         'D': set(['B']),
-         'E': set(['B', 'F']),
-         'F': set(['C', 'E'])}
-
-def bfs_paths(graph, start, goal):
-    queue = [(start, [start])]
-    while queue:
-        (vertex, path) = queue.pop(0)#here deque with leftpop() O(1) is better than queue pop(0) O(n)
-        for next in graph[vertex] - set(path):
-            if next == goal:
-                yield path + [next]
-            else:
-                queue.append((next, path + [next]))
-
-print(list(bfs_paths(graph, 'A', 'F')))# [['A', 'C', 'F'], ['A', 'B', 'E', 'F']]
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">graph</span> <span class="o">=</span> <span class="p">{</span><span class="s">'A'</span><span class="p">:</span> <span class="nb">set</span><span class="p">([</span><span class="s">'B'</span><span class="p">,</span> <span class="s">'C'</span><span class="p">]),</span>
+         <span class="s">'B'</span><span class="p">:</span> <span class="nb">set</span><span class="p">([</span><span class="s">'A'</span><span class="p">,</span> <span class="s">'D'</span><span class="p">,</span> <span class="s">'E'</span><span class="p">]),</span>
+         <span class="s">'C'</span><span class="p">:</span> <span class="nb">set</span><span class="p">([</span><span class="s">'A'</span><span class="p">,</span> <span class="s">'F'</span><span class="p">]),</span>
+         <span class="s">'D'</span><span class="p">:</span> <span class="nb">set</span><span class="p">([</span><span class="s">'B'</span><span class="p">]),</span>
+         <span class="s">'E'</span><span class="p">:</span> <span class="nb">set</span><span class="p">([</span><span class="s">'B'</span><span class="p">,</span> <span class="s">'F'</span><span class="p">]),</span>
+         <span class="s">'F'</span><span class="p">:</span> <span class="nb">set</span><span class="p">([</span><span class="s">'C'</span><span class="p">,</span> <span class="s">'E'</span><span class="p">])}</span>
 </code></pre></div></div>
 
 <ul>
-  <li>Recursion version of BFS</li>
+  <li>The loop version of BFS</li>
 </ul>
 
-<pre><code class="language-Python">#first result is the shortest path
-def shortest_path(graph, start, goal):
-    try:
-        return next(bfs_paths(graph, start, goal))
-    except StopIteration:
-        return None
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
+    <span class="n">visited</span><span class="p">,</span> <span class="n">queue</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(),</span> <span class="p">[</span><span class="n">start</span><span class="p">]</span>
+    <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
+        <span class="n">vertex</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">vertex</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
+            <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">vertex</span><span class="p">)</span>
+            <span class="n">queue</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="n">vertex</span><span class="p">]</span> <span class="o">-</span> <span class="n">visited</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">visited</span>
 
-print("Shortest path is: ", shortest_path(graph, 'A', 'F'))# ['A', 'C', 'F']
-</code></pre>
+<span class="k">print</span><span class="p">(</span><span class="n">bfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="s">'A'</span><span class="p">))</span><span class="c"># {'B', 'C', 'A', 'F', 'D', 'E'}</span>
+</code></pre></div></div>
 
-<p>Block Mathjax</p>
+<ul>
+  <li>The recursion version of BFS</li>
+</ul>
 
-<script type="math/tex; mode=display">f(x) = ax + b</script>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#first result is the shortest path</span>
+<span class="k">def</span> <span class="nf">shortest_path</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">goal</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="n">bfs_paths</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">goal</span><span class="p">))</span>
+    <span class="k">except</span> <span class="nb">StopIteration</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">None</span>
 
-<p>Inline Mathjax $a \neq b$</p>
+<span class="k">print</span><span class="p">(</span><span class="s">"Shortest path is: "</span><span class="p">,</span> <span class="n">shortest_path</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="s">'A'</span><span class="p">,</span> <span class="s">'F'</span><span class="p">))</span><span class="c"># ['A', 'C', 'F']</span>
+</code></pre></div></div>
 
+<ul>
+  <li>Use generator to return all of the paths when implementing BFS</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">bfs_paths</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">goal</span><span class="p">):</span>
+    <span class="n">queue</span> <span class="o">=</span> <span class="p">[(</span><span class="n">start</span><span class="p">,</span> <span class="p">[</span><span class="n">start</span><span class="p">])]</span>
+    <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">vertex</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="c">#here deque with leftpop() O(1) is better than queue pop(0) O(n)</span>
+        <span class="k">for</span> <span class="nb">next</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">vertex</span><span class="p">]</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">next</span> <span class="o">==</span> <span class="n">goal</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">path</span> <span class="o">+</span> <span class="p">[</span><span class="nb">next</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">next</span><span class="p">,</span> <span class="n">path</span> <span class="o">+</span> <span class="p">[</span><span class="nb">next</span><span class="p">]))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">bfs_paths</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="s">'A'</span><span class="p">,</span> <span class="s">'F'</span><span class="p">)))</span><span class="c"># [['A', 'C', 'F'], ['A', 'B', 'E', 'F']]</span>
+</code></pre></div></div>
+
+<ul>
+  <li>The loop version of DFS</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
+    <span class="n">visited</span><span class="p">,</span> <span class="n">stack</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(),</span> <span class="p">[</span><span class="n">start</span><span class="p">]</span>
+    <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
+        <span class="n">vertex</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">vertex</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
+            <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">vertex</span><span class="p">)</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="n">vertex</span><span class="p">]</span> <span class="o">-</span> <span class="n">visited</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">visited</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">dfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="s">'A'</span><span class="p">))</span><span class="c"># {'E', 'D', 'F', 'A', 'C', 'B'}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>The recursion version of DFS</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">dfs_recursion</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">visited</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">visited</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+    <span class="k">for</span> <span class="nb">next</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">-</span> <span class="n">visited</span><span class="p">:</span>
+        <span class="n">dfs_recursion</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="nb">next</span><span class="p">,</span> <span class="n">visited</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">visited</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">dfs_recursion</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="s">'A'</span><span class="p">))</span><span class="c"># {'E', 'D', 'F', 'A', 'C', 'B'}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Use generator to return all of the possible paths between a start and goal vertex</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">dfs_paths</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">goal</span><span class="p">):</span>
+    <span class="n">stack</span> <span class="o">=</span> <span class="p">[(</span><span class="n">start</span><span class="p">,</span> <span class="p">[</span><span class="n">start</span><span class="p">])]</span>
+    <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">vertex</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">for</span> <span class="nb">next</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">vertex</span><span class="p">]</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">next</span> <span class="o">==</span> <span class="n">goal</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">path</span> <span class="o">+</span> <span class="p">[</span><span class="nb">next</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">next</span><span class="p">,</span> <span class="n">path</span> <span class="o">+</span> <span class="p">[</span><span class="nb">next</span><span class="p">]))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">dfs_paths</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="s">'A'</span><span class="p">,</span> <span class="s">'F'</span><span class="p">)))</span><span class="c">#[['A', 'C', 'F'], ['A', 'B', 'E', 'F']]</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Use yield from to implement code above</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">dfs_paths_yield_from</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">goal</span><span class="p">,</span> <span class="n">path</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="n">start</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">start</span> <span class="o">==</span> <span class="n">goal</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">path</span>
+    <span class="k">for</span> <span class="nb">next</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="k">from</span> <span class="n">dfs_paths_yield_from</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="nb">next</span><span class="p">,</span> <span class="n">goal</span><span class="p">,</span> <span class="n">path</span> <span class="o">+</span> <span class="p">[</span><span class="nb">next</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">dfs_paths_yield_from</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="s">'C'</span><span class="p">,</span> <span class="s">'F'</span><span class="p">)))</span><span class="c"># [['C', 'F'], ['C', 'A', 'B', 'E', 'F']]</span>
+</code></pre></div></div>
 
         </article>
         <hr>
