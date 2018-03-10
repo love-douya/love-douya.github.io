@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Categories</title>
-    <meta name="description" content="">
+    <title>BFS</title>
+    <meta name="description" content="BFS&DFS in Python">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
     <link rel="stylesheet" href="/css/main.css ">
-    <link rel="canonical" href="http://localhost:9000/category/">
+    <link rel="canonical" href="http://localhost:9000/2018/03/10/BFS&DFS/">
     <link rel="alternate" type="application/rss+xml" title="Jimmy Tao" href="http://localhost:9000/feed.xml ">
 
 
@@ -43,6 +43,18 @@
     </script>
 
 
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+    "HTML-CSS": {
+      linebreaks: { automatic: true, width: "container" }
+    }
+});
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 </head>
 
@@ -78,8 +90,8 @@
                     
                     <li>
                         
-                        <a class="active" href="/category/">
-                            
+                        <a href="/category/">
+                        
                             <i class="fa fa-th-list"></i>Categories
                         </a>
                     </li>
@@ -127,27 +139,25 @@
 </header>
 
 
-        <div class="page clearfix">
+        <div class="page clearfix" post>
     <div class="left">
-        <h1>Categories</h1>
-        <hr>
-        <ul>
-            
-            <h2 id="Algorithm">Algorithm</h2>
-                
-                    
-                        
-                    
-                
-                    
-                        
-                        <li>
-                            <time>
-                            2018-03-10 Sat.
-                            </time>
-                            <a class="title" href="/2018/03/10/BFS&DFS/">BFS</a>
+        <h1>BFS</h1>
+        <div class="label">
 
-                            
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2018-03-10
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
 
 
 <!-- <span class="point">•</span> -->
@@ -163,24 +173,145 @@
 </span>
 
 
-                            
+            </div>
+
+            <div class="label-card">
+            
 <!-- <span class="point">•</span> -->
 <span class="pageTag">
   <i class="fa fa-tags"></i>
   
     
+        <!--a href="/tag/#Algorithm" title="Tag: Algorithm" rel="tag">Algorithm</a-->
         <a href="/tag/#Algorithm" title="Tag: Algorithm" rel="tag">Algorithm</a>
     
   
 
 </span>
 
-                        </li>
-                        
-                    
-                
-            
-        </ul>
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        
+<p>Use a queue to implement this algorithm. If weight of each edge is same, we can use only BFS to traverse the graph to achieve shortest path. In dijkstra with adjacency list, BFS is used when we traverse the graph.</p>
+
+<ul>
+  <li>The loop version of BFS
+```python
+graph = {‘A’: set([‘B’, ‘C’]),
+       ‘B’: set([‘A’, ‘D’, ‘E’]),
+       ‘C’: set([‘A’, ‘F’]),
+       ‘D’: set([‘B’]),
+       ‘E’: set([‘B’, ‘F’]),
+       ‘F’: set([‘C’, ‘E’])}</li>
+</ul>
+
+<p>def bfs(graph, start):
+    visited, queue = set(), [start]
+    while queue:
+        vertex = queue.pop(0)
+        if vertex not in visited:
+            visited.add(vertex)
+            queue.extend(graph[vertex] - visited)
+    return visited</p>
+
+<p>print(bfs(graph, ‘A’))# {‘B’, ‘C’, ‘A’, ‘F’, ‘D’, ‘E’}</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+* Use generator to return all of the paths when implementing BFS
+
+```Python
+graph = {'A': set(['B', 'C']),
+         'B': set(['A', 'D', 'E']),
+         'C': set(['A', 'F']),
+         'D': set(['B']),
+         'E': set(['B', 'F']),
+         'F': set(['C', 'E'])}
+
+def bfs_paths(graph, start, goal):
+    queue = [(start, [start])]
+    while queue:
+        (vertex, path) = queue.pop(0)#here deque with leftpop() O(1) is better than queue pop(0) O(n)
+        for next in graph[vertex] - set(path):
+            if next == goal:
+                yield path + [next]
+            else:
+                queue.append((next, path + [next]))
+
+print(list(bfs_paths(graph, 'A', 'F')))# [['A', 'C', 'F'], ['A', 'B', 'E', 'F']]
+</code></pre></div></div>
+
+<ul>
+  <li>Recursion version of BFS</li>
+</ul>
+
+<pre><code class="language-Python">#first result is the shortest path
+def shortest_path(graph, start, goal):
+    try:
+        return next(bfs_paths(graph, start, goal))
+    except StopIteration:
+        return None
+
+print("Shortest path is: ", shortest_path(graph, 'A', 'F'))# ['A', 'C', 'F']
+</code></pre>
+
+<p>Block Mathjax</p>
+
+<script type="math/tex; mode=display">f(x) = ax + b</script>
+
+<p>Inline Mathjax $a \neq b$</p>
+
+
+        </article>
+        <hr>
+
+        
+        
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+    </div>
+    <div class="nex">
+
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'http://localhost:9000/2018/03/10/BFS&DFS/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://localhost:9000/2018/03/10/BFS&DFS/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//JimmyTao.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
     </div>
     <button class="anchor"><i class="fa fa-anchor"></i></button>
     <div class="right">
@@ -193,12 +324,7 @@
                 </div>
                 <ul id="content-side" class="content-ul">
                     
-                        <li>
-                            <a data-scroll href="#Algorithm">
-                                Algorithm (1)
-                            </a>
-                        </li>
-                    
+                    <li><a href="#comments">Comments</a></li>
                 </ul>
             </div>
             <!-- 其他div框放到这里 -->
@@ -206,6 +332,17 @@
         </div>
     </div>
 </div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
 <script src="/js/pageContent.js " charset="utf-8"></script>
 
 

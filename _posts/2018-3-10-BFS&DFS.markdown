@@ -36,6 +36,7 @@ print(bfs(graph, 'A'))# {'B', 'C', 'A', 'F', 'D', 'E'}
 ```
 
 * Use generator to return all of the paths when implementing BFS
+
 ```Python
 graph = {'A': set(['B', 'C']),
          'B': set(['A', 'D', 'E']),
@@ -56,7 +57,9 @@ def bfs_paths(graph, start, goal):
 
 print(list(bfs_paths(graph, 'A', 'F')))# [['A', 'C', 'F'], ['A', 'B', 'E', 'F']]
 ```
+
 * Recursion version of BFS
+
 ```Python
 #first result is the shortest path
 def shortest_path(graph, start, goal):

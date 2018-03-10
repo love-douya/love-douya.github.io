@@ -5,9 +5,23 @@
     <description></description>
     <link>http://localhost:9000/</link>
     <atom:link href="http://localhost:9000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 10 Mar 2018 22:58:46 +0800</pubDate>
-    <lastBuildDate>Sat, 10 Mar 2018 22:58:46 +0800</lastBuildDate>
+    <pubDate>Sat, 10 Mar 2018 23:05:38 +0800</pubDate>
+    <lastBuildDate>Sat, 10 Mar 2018 23:05:38 +0800</lastBuildDate>
     <generator>Jekyll v3.7.3</generator>
+    
+      <item>
+        <title>BFS</title>
+        <description>BFS&amp;DFS in Python</description>
+        <pubDate>Sat, 10 Mar 2018 20:44:00 +0800</pubDate>
+        <link>http://localhost:9000/2018/03/10/BFS&DFS/</link>
+        <guid isPermaLink="true">http://localhost:9000/2018/03/10/BFS&DFS/</guid>
+        
+        <category>Algorithm</category>
+        
+        
+        <category>Algorithm</category>
+        
+      </item>
     
   </channel>
 </rss>
