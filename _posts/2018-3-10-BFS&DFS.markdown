@@ -113,7 +113,7 @@ def dfs_paths(graph, start, goal):
 print(list(dfs_paths(graph, 'A', 'F')))#[['A', 'C', 'F'], ['A', 'B', 'E', 'F']]
 ```
 
- * Use yield from to implement code above
+ * Use `yield from` to implement code above
  
 ```python
 def dfs_paths_yield_from(graph, start, goal, path = None):
