@@ -9,6 +9,7 @@ tags: Algorithm
 * content
 {:toc}
 
+# 测试
 
 ## Summary
 Use a queue to implement this algorithm. If weight of each edge is same, we can use only BFS to traverse the graph to achieve shortest path. In dijkstra with adjacency list, BFS is used when we traverse the graph.
