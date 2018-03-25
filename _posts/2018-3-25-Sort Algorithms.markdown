@@ -12,7 +12,7 @@ tags: Algorithm
 ## Bubble Sort
 Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order.
 
-![Bubble Sort](https://github.com/love-douya/love-douya.github.io/blob/master/Bubble%20Sort.gif)
+![Bubble Sort](https://raw.githubusercontent.com/love-douya/love-douya.github.io/master/Bubble%20Sort.gif)
 
 ```python
 def bubbleSort(arr):
