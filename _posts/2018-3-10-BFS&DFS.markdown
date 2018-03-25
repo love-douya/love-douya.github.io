@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "BFS&DFS in Python"
+title:  "BFS&DFS"
 date:   2018-3-10 12:44:00
 categories: Algorithm
-tags: Algorithm
+tags: Algorithm Graph BFS DFS Recursion
 ---
 
 * content
