@@ -25,6 +25,10 @@ def bubbleSort(arr):
 print(bubbleSort([12, 2, 8, 1, 23]))
 ```
 
+
+
+
+
 ## Selection Sort
 selection sort is a sorting algorithm, specifically an in-place comparison sort. It has O(n2) time complexity, making it inefficient on large lists, and generally performs worse than the similar insertion sort. Selection sort is noted for its simplicity, and it has performance advantages over more complicated algorithms in certain situations, particularly where auxiliary memory is limited.
 
@@ -71,8 +75,6 @@ print(result)
 
 ## Shell Sort
 Shellsort is an in-place comparison sort. It can be seen as either a generalization of sorting by exchange (bubble sort) or sorting by insertion (insertion sort).The method starts by sorting pairs of elements far apart from each other, then progressively reducing the gap between elements to be compared. Starting with far apart elements, it can move some out-of-place elements into position faster than a simple nearest neighbor exchange.
-
-![Shell Sort](https://raw.githubusercontent.com/love-douya/love-douya.github.io/master/picture/Shell%20Sort.gif)
 
 ```python
 def shellsort(alist):

@@ -7,7 +7,7 @@
 
 # Site settings
 title: Jimmy Tao
-brief-intro: Database/Machine Learning/Business Intelligence 
+brief-intro: Algorithm/Machine Learning/Database/Business Intelligence 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://love-douya.github.io" # the base hostname & protocol for your site
 

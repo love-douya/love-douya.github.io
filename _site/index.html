@@ -136,7 +136,86 @@
             
               <li>
                 <h2>
-                  <a class="post-link" href="/2018/03/10/BFS&DFS/">BFS&DFS in Python</a>
+                  <a class="post-link" href="/2018/03/26/8-classic-sort-algorithms/">8 classic sort algorithms</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2018-03-26
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Algorithm" title="Category: Algorithm" rel="category">Algorithm</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Algorithm" title="Tag: Algorithm" rel="tag">Algorithm</a>&nbsp;
+    
+        <a href="/tag/#Sort" title="Tag: Sort" rel="tag">Sort</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#bubble-sort" id="markdown-toc-bubble-sort">Bubble Sort</a></li>
+</ul>
+
+<h2 id="bubble-sort">Bubble Sort</h2>
+<p>Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order.</p>
+
+<p><img src="https://raw.githubusercontent.com/love-douya/love-douya.github.io/master/picture/Bubble%20Sort.gif" alt="Bubble Sort" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">bubbleSort</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">-</span> <span class="n">i</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
+                <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">arr</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">bubbleSort</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">23</span><span class="p">]))</span>
+</code></pre></div></div>
+
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2018/03/26/8-classic-sort-algorithms/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2018/03/10/BFS&DFS/">BFS&DFS</a>
                 </h2>
                 <div class="label">
                     <div class="label-card">
@@ -175,7 +254,15 @@
   <i class="fa fa-tags"></i>
   
     
-        <a href="/tag/#Algorithm" title="Tag: Algorithm" rel="tag">Algorithm</a>
+        <a href="/tag/#Algorithm" title="Tag: Algorithm" rel="tag">Algorithm</a>&nbsp;
+    
+        <a href="/tag/#Graph" title="Tag: Graph" rel="tag">Graph</a>&nbsp;
+    
+        <a href="/tag/#BFS" title="Tag: BFS" rel="tag">BFS</a>&nbsp;
+    
+        <a href="/tag/#DFS" title="Tag: DFS" rel="tag">DFS</a>&nbsp;
+    
+        <a href="/tag/#Recursion" title="Tag: Recursion" rel="tag">Recursion</a>
     
   
 
@@ -219,99 +306,6 @@
 <span class="k">print</span><span class="p">(</span><span class="n">bfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="s">'A'</span><span class="p">))</span><span class="c"># {'B', 'C', 'A', 'F', 'D', 'E'}</span>
 </code></pre></div></div>
 
-<ul>
-  <li>The recursion version of BFS</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#first result is the shortest path</span>
-<span class="k">def</span> <span class="nf">shortest_path</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">goal</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="n">bfs_paths</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">goal</span><span class="p">))</span>
-    <span class="k">except</span> <span class="nb">StopIteration</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">None</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s">"Shortest path is: "</span><span class="p">,</span> <span class="n">shortest_path</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="s">'A'</span><span class="p">,</span> <span class="s">'F'</span><span class="p">))</span><span class="c"># ['A', 'C', 'F']</span>
-</code></pre></div></div>
-
-<ul>
-  <li>Use generator to return all of the paths when implementing BFS</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">bfs_paths</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">goal</span><span class="p">):</span>
-    <span class="n">queue</span> <span class="o">=</span> <span class="p">[(</span><span class="n">start</span><span class="p">,</span> <span class="p">[</span><span class="n">start</span><span class="p">])]</span>
-    <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
-        <span class="p">(</span><span class="n">vertex</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="c">#here deque with leftpop() O(1) is better than queue pop(0) O(n)</span>
-        <span class="k">for</span> <span class="nb">next</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">vertex</span><span class="p">]</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-            <span class="k">if</span> <span class="nb">next</span> <span class="o">==</span> <span class="n">goal</span><span class="p">:</span>
-                <span class="k">yield</span> <span class="n">path</span> <span class="o">+</span> <span class="p">[</span><span class="nb">next</span><span class="p">]</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">next</span><span class="p">,</span> <span class="n">path</span> <span class="o">+</span> <span class="p">[</span><span class="nb">next</span><span class="p">]))</span>
-
-<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">bfs_paths</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="s">'A'</span><span class="p">,</span> <span class="s">'F'</span><span class="p">)))</span><span class="c"># [['A', 'C', 'F'], ['A', 'B', 'E', 'F']]</span>
-</code></pre></div></div>
-
-<ul>
-  <li>The loop version of DFS</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
-    <span class="n">visited</span><span class="p">,</span> <span class="n">stack</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(),</span> <span class="p">[</span><span class="n">start</span><span class="p">]</span>
-    <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
-        <span class="n">vertex</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">vertex</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
-            <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">vertex</span><span class="p">)</span>
-            <span class="n">stack</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="n">vertex</span><span class="p">]</span> <span class="o">-</span> <span class="n">visited</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">visited</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">dfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="s">'A'</span><span class="p">))</span><span class="c"># {'E', 'D', 'F', 'A', 'C', 'B'}</span>
-</code></pre></div></div>
-
-<ul>
-  <li>The recursion version of DFS</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">dfs_recursion</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">visited</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">visited</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-    <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
-    <span class="k">for</span> <span class="nb">next</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">-</span> <span class="n">visited</span><span class="p">:</span>
-        <span class="n">dfs_recursion</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="nb">next</span><span class="p">,</span> <span class="n">visited</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">visited</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">dfs_recursion</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="s">'A'</span><span class="p">))</span><span class="c"># {'E', 'D', 'F', 'A', 'C', 'B'}</span>
-</code></pre></div></div>
-
-<ul>
-  <li>Use generator to return all of the possible paths between a start and goal vertex</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">dfs_paths</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">goal</span><span class="p">):</span>
-    <span class="n">stack</span> <span class="o">=</span> <span class="p">[(</span><span class="n">start</span><span class="p">,</span> <span class="p">[</span><span class="n">start</span><span class="p">])]</span>
-    <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
-        <span class="p">(</span><span class="n">vertex</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-        <span class="k">for</span> <span class="nb">next</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">vertex</span><span class="p">]</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-            <span class="k">if</span> <span class="nb">next</span> <span class="o">==</span> <span class="n">goal</span><span class="p">:</span>
-                <span class="k">yield</span> <span class="n">path</span> <span class="o">+</span> <span class="p">[</span><span class="nb">next</span><span class="p">]</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">next</span><span class="p">,</span> <span class="n">path</span> <span class="o">+</span> <span class="p">[</span><span class="nb">next</span><span class="p">]))</span>
-
-<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">dfs_paths</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="s">'A'</span><span class="p">,</span> <span class="s">'F'</span><span class="p">)))</span><span class="c">#[['A', 'C', 'F'], ['A', 'B', 'E', 'F']]</span>
-</code></pre></div></div>
-
-<ul>
-  <li>Use <code class="highlighter-rouge">yield from</code> to implement code above</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">dfs_paths_yield_from</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">goal</span><span class="p">,</span> <span class="n">path</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="n">start</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">start</span> <span class="o">==</span> <span class="n">goal</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="n">path</span>
-    <span class="k">for</span> <span class="nb">next</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-        <span class="k">yield</span> <span class="k">from</span> <span class="n">dfs_paths_yield_from</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="nb">next</span><span class="p">,</span> <span class="n">goal</span><span class="p">,</span> <span class="n">path</span> <span class="o">+</span> <span class="p">[</span><span class="nb">next</span><span class="p">])</span>
-
-<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">dfs_paths_yield_from</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="s">'C'</span><span class="p">,</span> <span class="s">'F'</span><span class="p">)))</span><span class="c"># [['C', 'F'], ['C', 'A', 'B', 'E', 'F']]</span>
-</code></pre></div></div>
 
                 </div>
                 <div class="read-all">
@@ -347,7 +341,9 @@
                 </div>
                 <ul class="content-ul" recent>
                     
-                        <li><a href="/2018/03/10/BFS&DFS/">BFS&DFS in Python</a></li>
+                        <li><a href="/2018/03/26/8-classic-sort-algorithms/">8 classic sort algorithms</a></li>
+                    
+                        <li><a href="/2018/03/10/BFS&DFS/">BFS&DFS</a></li>
                     
                 </ul>
             </div>
@@ -365,7 +361,7 @@
                             <span class="name">
                                 Algorithm
                             </span>
-                            <span class="badge">1</span>
+                            <span class="badge">2</span>
                         </a>
                     </li>
                     
@@ -391,7 +387,42 @@
                       
                       
                       
-                      <a href="/tag/#Algorithm" style="font-size: 9pt; color: #999;">Algorithm</a>
+                      <a href="/tag/#Algorithm" style="font-size: 18pt; color: #000;">Algorithm</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Graph" style="font-size: 9pt; color: #999;">Graph</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#BFS" style="font-size: 9pt; color: #999;">BFS</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#DFS" style="font-size: 9pt; color: #999;">DFS</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Recursion" style="font-size: 9pt; color: #999;">Recursion</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Sort" style="font-size: 9pt; color: #999;">Sort</a>
                     
                 </div>
             </div>
