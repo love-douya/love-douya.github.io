@@ -56,4 +56,4 @@ $$
 * $\theta_0, \theta_1$ - parameters
 * $h(x) = \theta_0 + \theta_1x$ - hypothesis function
 * $E(\theta_0, \theta_1) = \frac{1}{2m}\sum_{i = 1}^m\left(h_i(x) - y_i\right)^2
-* $ - cost function
+ $ - cost function
