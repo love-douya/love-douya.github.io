@@ -11,7 +11,7 @@ mathjax: true
 {:toc}
 
 ## Step 0
-The parameters t1 t2 are set to 0
+The parameters `t1` `t2` are set to `0`
 
 ## Step 1
 Calculate the hypothesis for each data point
@@ -31,3 +31,29 @@ Calculate the partial derivatives of the cost function with respect to parameter
 $$
 \frac{\partial E(\theta_0, \theta_1)}{\partial \theta_0} = \frac{1}{m}\sum_{i=1}^m\left(h_i(x) - y_i\right)
 $$
+
+$$
+\frac{\partial E(\theta_0, \theta_1)}{\partial \theta_1} = \frac{1}{m}\sum_{i=1}^m\left(h_i(x) - y_i\right)x_i
+$$
+
+## step 4
+Update the parameters
+
+$$
+\theta_0 := \theta_0 - \alpha\frac{\partial E(\theta_0, \theta_1)}{\partial \theta_0}
+$$
+
+$$
+\theta_0 := \theta_0 - \alpha\frac{\partial E(\theta_0, \theta_1)}{\partial \theta_1}
+$$
+
+### Notation
+
+* x - feature
+* y - target values
+* m - size of data set
+* $\alpha$ -  learing rate
+* $\theta_0, \theta_1$ - parameters
+* $h(x) = \theta_0 + \theta_1x$ - hypothesis function
+* $E(\theta_0, \theta_1) = \frac{1}{2m}\sum_{i = 1}^m\left(h_i(x) - y_i\right)^2
+* $ - cost function
