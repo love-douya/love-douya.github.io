@@ -27,8 +27,6 @@ $$
 E(\theta_0, \theta_1) = \frac{1}{2m}\sum_{i = 1}^m\left(h_i(x) - y_i\right)^2
 $$
 
-
-
 ## step 3
 Calculate the partial derivatives of the cost function with respect to parameters
 
@@ -39,6 +37,9 @@ $$
 $$
 \frac{\partial E(\theta_0, \theta_1)}{\partial \theta_1} = \frac{1}{m}\sum_{i=1}^m\left(h_i(x) - y_i\right)x_i
 $$
+
+
+
 
 ## step 4
 Update the parameters
