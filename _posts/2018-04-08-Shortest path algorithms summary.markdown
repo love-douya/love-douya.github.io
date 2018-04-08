@@ -9,8 +9,6 @@ tags: Algorithm Graph Dijkstra Bellman-ford SPFA Topological Sort
 * content
 {:toc}
 
-## 最短路径算法简单归纳
-
 所有节点对的最短路径计算可以使用Floyd-Warshall算法，该算法为暴力算法，时间复杂度为O(V3)，下面主要讨论单源最短路径算法。
 单源最短路径算法有
 1.	朴素Dijkstra算法，时间复杂度O(V2)，无法判断是否存在负环。
