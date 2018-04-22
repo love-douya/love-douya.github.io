@@ -42,7 +42,7 @@ type: page
 * [Codelite](https://codelite.org/)
     可以作为Windows平台的轻量级C/C++编辑器，集成Git/SVN命令。
 
-### My favorite blogs and website
+### My favorite blogs and websites
 
 * [Problem Solving with Algorithms and Data Structures using Python](https://runestone.academy/runestone/static/pythonds/index.html)
 
