@@ -170,4 +170,4 @@ From C code above, we can find PyObject *mro records the sequence of all root cl
 * Super() is an unbound type to call parent method, if we need to modify parent class names frequently, it's not recommended to use bound type(parentclass.method) because we need to travasal the child class to modify all parent class names.
 * Combining unbound type and bound type in a child class is danger because it may cause leak of parent classes.
 
-[Reference][https://blog.csdn.net/johnsonguo/article/details/585193]
+[!Reference][https://blog.csdn.net/johnsonguo/article/details/585193]
