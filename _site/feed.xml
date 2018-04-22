@@ -5,9 +5,152 @@
     <description></description>
     <link>http://localhost:9000/</link>
     <atom:link href="http://localhost:9000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 01 Apr 2018 20:49:57 +0800</pubDate>
-    <lastBuildDate>Sun, 01 Apr 2018 20:49:57 +0800</lastBuildDate>
+    <pubDate>Sun, 22 Apr 2018 10:47:38 +0800</pubDate>
+    <lastBuildDate>Sun, 22 Apr 2018 10:47:38 +0800</lastBuildDate>
     <generator>Jekyll v3.7.3</generator>
+    
+      <item>
+        <title>Longest palindrome(Leetcode-5)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#problem&quot; id=&quot;markdown-toc-problem&quot;&gt;Problem&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#example-1&quot; id=&quot;markdown-toc-example-1&quot;&gt;Example 1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#example-2&quot; id=&quot;markdown-toc-example-2&quot;&gt;Example 2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
+
+Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
+
+&lt;h3 id=&quot;example-1&quot;&gt;Example 1&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Input: “babad”&lt;/li&gt;
+    &lt;li&gt;Output: “bab”&lt;/li&gt;
+    &lt;li&gt;Note: “aba” is also a valid answer.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;example-2&quot;&gt;Example 2&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Input: “cbbd”&lt;/li&gt;
+    &lt;li&gt;Output: “bb”&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Sun, 22 Apr 2018 02:20:00 +0800</pubDate>
+        <link>http://localhost:9000/2018/04/22/Longest-palindrome/</link>
+        <guid isPermaLink="true">http://localhost:9000/2018/04/22/Longest-palindrome/</guid>
+        
+        <category>Algorithm</category>
+        
+        <category>Leetcode</category>
+        
+        <category>palindrome</category>
+        
+        
+        <category>Algorithm</category>
+        
+        <category>Leetcode</category>
+        
+      </item>
+    
+      <item>
+        <title>最短路径算法归纳</title>
+        <description>
+所有节点对的最短路径计算可以使用Floyd-Warshall算法，该算法为暴力算法，时间复杂度为 &lt;code class=&quot;highlighter-rouge&quot;&gt;O(V^3)&lt;/code&gt; ，下面主要讨论单源最短路径算法。
+单源最短路径算法有
+&lt;ol&gt;
+  &lt;li&gt;朴素Dijkstra算法，时间复杂度 &lt;code class=&quot;highlighter-rouge&quot;&gt;O(V^2)&lt;/code&gt; ，无法判断是否存在负环。&lt;/li&gt;
+  &lt;li&gt;Bellman-Ford算法，时间复杂度 &lt;code class=&quot;highlighter-rouge&quot;&gt;O(VE)&lt;/code&gt;，可以判断是否存在负环，并且可以找到负环。&lt;/li&gt;
+  &lt;li&gt;SPFA(Bellman-Ford的队列实现)，时间复杂度不稳定(有两个改良时间复杂度的优化策略SLF(Small Label First)和LLL(Large Label Last)，这里不做详细讨论)，可以判断是否存在负环，但是无法找到负环。&lt;/li&gt;
+  &lt;li&gt;Dijkstra算法(二叉堆优化)，时间复杂度 &lt;code class=&quot;highlighter-rouge&quot;&gt;O(VlogV+ElogV)&lt;/code&gt; ，BFS时间复杂度 &lt;code class=&quot;highlighter-rouge&quot;&gt;O(V+E)&lt;/code&gt; ，二叉堆时间复杂度 &lt;code class=&quot;highlighter-rouge&quot;&gt;O(logV)&lt;/code&gt; ，同样无法判断是否存在负环。&lt;/li&gt;
+  &lt;li&gt;Dijjkstra算法(斐波那契堆优化)，时间复杂度 &lt;code class=&quot;highlighter-rouge&quot;&gt;O(E+VlogV)&lt;/code&gt; ，无法判断是否存在负环。&lt;/li&gt;
+  &lt;li&gt;在DAG中，可以使用Topological Sort来计算最短路径，时间复杂度 &lt;code class=&quot;highlighter-rouge&quot;&gt;O(V+E)&lt;/code&gt; ，由于没有环，所以不存在负环。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Sun, 08 Apr 2018 22:20:00 +0800</pubDate>
+        <link>http://localhost:9000/2018/04/08/Shortest-path-algorithms-summary/</link>
+        <guid isPermaLink="true">http://localhost:9000/2018/04/08/Shortest-path-algorithms-summary/</guid>
+        
+        <category>Algorithm</category>
+        
+        <category>Graph</category>
+        
+        <category>Dijkstra</category>
+        
+        <category>Bellman-ford</category>
+        
+        <category>SPFA</category>
+        
+        <category>Topological</category>
+        
+        <category>Sort</category>
+        
+        
+        <category>Algorithm</category>
+        
+      </item>
+    
+      <item>
+        <title>Linear Regression</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#step-0&quot; id=&quot;markdown-toc-step-0&quot;&gt;Step 0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#step-1&quot; id=&quot;markdown-toc-step-1&quot;&gt;Step 1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#step-2&quot; id=&quot;markdown-toc-step-2&quot;&gt;Step 2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#step-3&quot; id=&quot;markdown-toc-step-3&quot;&gt;step 3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+LinearRegression fits a linear model with coefficients $w = (w_1, …, w_p)$ to minimize the residual sum of squares between the observed responses in the dataset, and the responses predicted by the linear approximation.
+
+&lt;img src=&quot;https://raw.githubusercontent.com/love-douya/love-douya.github.io/master/picture/Linear%20Regression.png&quot; alt=&quot;Linear Regression&quot; /&gt;
+
+&lt;h2 id=&quot;step-0&quot;&gt;Step 0&lt;/h2&gt;
+The parameters &lt;code class=&quot;highlighter-rouge&quot;&gt;t1&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;t2&lt;/code&gt; are set to &lt;code class=&quot;highlighter-rouge&quot;&gt;0&lt;/code&gt;
+
+&lt;h2 id=&quot;step-1&quot;&gt;Step 1&lt;/h2&gt;
+Calculate the hypothesis for each data point
+
+&lt;h2 id=&quot;step-2&quot;&gt;Step 2&lt;/h2&gt;
+Calculate the cost function
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;E(\theta_0, \theta_1) = \frac{1}{2m}\sum_{i = 1}^m\left(h_i(x) - y_i\right)^2&lt;/script&gt;
+
+&lt;h2 id=&quot;step-3&quot;&gt;step 3&lt;/h2&gt;
+Calculate the partial derivatives of the cost function with respect to parameters
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\partial E(\theta_0, \theta_1)}{\partial \theta_0} = \frac{1}{m}\sum_{i=1}^m\left(h_i(x) - y_i\right)&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\partial E(\theta_0, \theta_1)}{\partial \theta_1} = \frac{1}{m}\sum_{i=1}^m\left(h_i(x) - y_i\right)x_i&lt;/script&gt;
+
+</description>
+        <pubDate>Sun, 01 Apr 2018 23:28:00 +0800</pubDate>
+        <link>http://localhost:9000/2018/04/01/Linear-Regression/</link>
+        <guid isPermaLink="true">http://localhost:9000/2018/04/01/Linear-Regression/</guid>
+        
+        <category>Algorithm</category>
+        
+        <category>Machine</category>
+        
+        <category>Learning</category>
+        
+        <category>Linear</category>
+        
+        <category>Regression</category>
+        
+        
+        <category>Algorithm</category>
+        
+        <category>Machine</category>
+        
+        <category>Learing</category>
+        
+      </item>
     
       <item>
         <title>8 classic sort algorithms</title>

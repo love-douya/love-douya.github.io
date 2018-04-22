@@ -136,6 +136,281 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2018/04/22/Longest-palindrome/">Longest palindrome(Leetcode-5)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2018-04-22
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Algorithm" title="Category: Algorithm" rel="category">Algorithm</a>&nbsp;
+    
+        <a href="/category/#Leetcode" title="Category: Leetcode" rel="category">Leetcode</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Algorithm" title="Tag: Algorithm" rel="tag">Algorithm</a>&nbsp;
+    
+        <a href="/tag/#Leetcode" title="Tag: Leetcode" rel="tag">Leetcode</a>&nbsp;
+    
+        <a href="/tag/#palindrome" title="Tag: palindrome" rel="tag">palindrome</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#problem" id="markdown-toc-problem">Problem</a>    <ul>
+      <li><a href="#example-1" id="markdown-toc-example-1">Example 1</a></li>
+      <li><a href="#example-2" id="markdown-toc-example-2">Example 2</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="problem">Problem</h2>
+
+<p>Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.</p>
+
+<h3 id="example-1">Example 1</h3>
+
+<blockquote>
+  <ul>
+    <li>Input: “babad”</li>
+    <li>Output: “bab”</li>
+    <li>Note: “aba” is also a valid answer.</li>
+  </ul>
+</blockquote>
+
+<h3 id="example-2">Example 2</h3>
+
+<blockquote>
+  <ul>
+    <li>Input: “cbbd”</li>
+    <li>Output: “bb”</li>
+  </ul>
+</blockquote>
+
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2018/04/22/Longest-palindrome/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2018/04/08/Shortest-path-algorithms-summary/">最短路径算法归纳</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2018-04-08
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Algorithm" title="Category: Algorithm" rel="category">Algorithm</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Algorithm" title="Tag: Algorithm" rel="tag">Algorithm</a>&nbsp;
+    
+        <a href="/tag/#Graph" title="Tag: Graph" rel="tag">Graph</a>&nbsp;
+    
+        <a href="/tag/#Dijkstra" title="Tag: Dijkstra" rel="tag">Dijkstra</a>&nbsp;
+    
+        <a href="/tag/#Bellman-ford" title="Tag: Bellman-ford" rel="tag">Bellman-ford</a>&nbsp;
+    
+        <a href="/tag/#SPFA" title="Tag: SPFA" rel="tag">SPFA</a>&nbsp;
+    
+        <a href="/tag/#Topological" title="Tag: Topological" rel="tag">Topological</a>&nbsp;
+    
+        <a href="/tag/#Sort" title="Tag: Sort" rel="tag">Sort</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    
+<p>所有节点对的最短路径计算可以使用Floyd-Warshall算法，该算法为暴力算法，时间复杂度为 <code class="highlighter-rouge">O(V^3)</code> ，下面主要讨论单源最短路径算法。
+单源最短路径算法有</p>
+<ol>
+  <li>朴素Dijkstra算法，时间复杂度 <code class="highlighter-rouge">O(V^2)</code> ，无法判断是否存在负环。</li>
+  <li>Bellman-Ford算法，时间复杂度 <code class="highlighter-rouge">O(VE)</code>，可以判断是否存在负环，并且可以找到负环。</li>
+  <li>SPFA(Bellman-Ford的队列实现)，时间复杂度不稳定(有两个改良时间复杂度的优化策略SLF(Small Label First)和LLL(Large Label Last)，这里不做详细讨论)，可以判断是否存在负环，但是无法找到负环。</li>
+  <li>Dijkstra算法(二叉堆优化)，时间复杂度 <code class="highlighter-rouge">O(VlogV+ElogV)</code> ，BFS时间复杂度 <code class="highlighter-rouge">O(V+E)</code> ，二叉堆时间复杂度 <code class="highlighter-rouge">O(logV)</code> ，同样无法判断是否存在负环。</li>
+  <li>Dijjkstra算法(斐波那契堆优化)，时间复杂度 <code class="highlighter-rouge">O(E+VlogV)</code> ，无法判断是否存在负环。</li>
+  <li>在DAG中，可以使用Topological Sort来计算最短路径，时间复杂度 <code class="highlighter-rouge">O(V+E)</code> ，由于没有环，所以不存在负环。</li>
+</ol>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2018/04/08/Shortest-path-algorithms-summary/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2018/04/01/Linear-Regression/">Linear Regression</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2018-04-01
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Algorithm" title="Category: Algorithm" rel="category">Algorithm</a>&nbsp;
+    
+        <a href="/category/#Machine" title="Category: Machine" rel="category">Machine</a>&nbsp;
+    
+        <a href="/category/#Learing" title="Category: Learing" rel="category">Learing</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Algorithm" title="Tag: Algorithm" rel="tag">Algorithm</a>&nbsp;
+    
+        <a href="/tag/#Machine" title="Tag: Machine" rel="tag">Machine</a>&nbsp;
+    
+        <a href="/tag/#Learning" title="Tag: Learning" rel="tag">Learning</a>&nbsp;
+    
+        <a href="/tag/#Linear" title="Tag: Linear" rel="tag">Linear</a>&nbsp;
+    
+        <a href="/tag/#Regression" title="Tag: Regression" rel="tag">Regression</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#step-0" id="markdown-toc-step-0">Step 0</a></li>
+  <li><a href="#step-1" id="markdown-toc-step-1">Step 1</a></li>
+  <li><a href="#step-2" id="markdown-toc-step-2">Step 2</a></li>
+  <li><a href="#step-3" id="markdown-toc-step-3">step 3</a></li>
+</ul>
+
+<p>LinearRegression fits a linear model with coefficients $w = (w_1, …, w_p)$ to minimize the residual sum of squares between the observed responses in the dataset, and the responses predicted by the linear approximation.</p>
+
+<p><img src="https://raw.githubusercontent.com/love-douya/love-douya.github.io/master/picture/Linear%20Regression.png" alt="Linear Regression" /></p>
+
+<h2 id="step-0">Step 0</h2>
+<p>The parameters <code class="highlighter-rouge">t1</code> <code class="highlighter-rouge">t2</code> are set to <code class="highlighter-rouge">0</code></p>
+
+<h2 id="step-1">Step 1</h2>
+<p>Calculate the hypothesis for each data point</p>
+
+<h2 id="step-2">Step 2</h2>
+<p>Calculate the cost function</p>
+
+<script type="math/tex; mode=display">E(\theta_0, \theta_1) = \frac{1}{2m}\sum_{i = 1}^m\left(h_i(x) - y_i\right)^2</script>
+
+<h2 id="step-3">step 3</h2>
+<p>Calculate the partial derivatives of the cost function with respect to parameters</p>
+
+<script type="math/tex; mode=display">\frac{\partial E(\theta_0, \theta_1)}{\partial \theta_0} = \frac{1}{m}\sum_{i=1}^m\left(h_i(x) - y_i\right)</script>
+
+<script type="math/tex; mode=display">\frac{\partial E(\theta_0, \theta_1)}{\partial \theta_1} = \frac{1}{m}\sum_{i=1}^m\left(h_i(x) - y_i\right)x_i</script>
+
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2018/04/01/Linear-Regression/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2018/03/26/8-classic-sort-algorithms/">8 classic sort algorithms</a>
                 </h2>
                 <div class="label">
@@ -341,6 +616,12 @@
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2018/04/22/Longest-palindrome/">Longest palindrome(Leetcode-5)</a></li>
+                    
+                        <li><a href="/2018/04/08/Shortest-path-algorithms-summary/">最短路径算法归纳</a></li>
+                    
+                        <li><a href="/2018/04/01/Linear-Regression/">Linear Regression</a></li>
+                    
                         <li><a href="/2018/03/26/8-classic-sort-algorithms/">8 classic sort algorithms</a></li>
                     
                         <li><a href="/2018/03/10/BFS&DFS/">BFS&DFS</a></li>
@@ -361,7 +642,34 @@
                             <span class="name">
                                 Algorithm
                             </span>
-                            <span class="badge">2</span>
+                            <span class="badge">5</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#Machine" class="categories-list-item" cate="Machine">
+                            <span class="name">
+                                Machine
+                            </span>
+                            <span class="badge">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#Learing" class="categories-list-item" cate="Learing">
+                            <span class="name">
+                                Learing
+                            </span>
+                            <span class="badge">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#Leetcode" class="categories-list-item" cate="Leetcode">
+                            <span class="name">
+                                Leetcode
+                            </span>
+                            <span class="badge">1</span>
                         </a>
                     </li>
                     
@@ -394,7 +702,7 @@
                       
                       
                       
-                      <a href="/tag/#Graph" style="font-size: 9pt; color: #999;">Graph</a>
+                      <a href="/tag/#Graph" style="font-size: 11.5pt; color: #777;">Graph</a>
                     
                       
                       
@@ -422,7 +730,77 @@
                       
                       
                       
-                      <a href="/tag/#Sort" style="font-size: 9pt; color: #999;">Sort</a>
+                      <a href="/tag/#Sort" style="font-size: 11.5pt; color: #777;">Sort</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Machine" style="font-size: 9pt; color: #999;">Machine</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Learning" style="font-size: 9pt; color: #999;">Learning</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Linear" style="font-size: 9pt; color: #999;">Linear</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Regression" style="font-size: 9pt; color: #999;">Regression</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Dijkstra" style="font-size: 9pt; color: #999;">Dijkstra</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Bellman-ford" style="font-size: 9pt; color: #999;">Bellman-ford</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#SPFA" style="font-size: 9pt; color: #999;">SPFA</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Topological" style="font-size: 9pt; color: #999;">Topological</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Leetcode" style="font-size: 9pt; color: #999;">Leetcode</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#palindrome" style="font-size: 9pt; color: #999;">palindrome</a>
                     
                 </div>
             </div>
