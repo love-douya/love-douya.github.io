@@ -10,7 +10,7 @@ type: page
 {:toc}
 
 
-### Programming languages I am using
+### Programming languages and lib I have been using
 
 * C
 - Win32
