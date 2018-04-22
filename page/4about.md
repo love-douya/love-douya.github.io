@@ -9,7 +9,7 @@ type: page
 * content
 {:toc}
 
-## 联系我
+## Contact
 
 * GitHub：[love-douya](https://github.com/love-douya)
 * email：njnytaoyue@yahoo.co.jp

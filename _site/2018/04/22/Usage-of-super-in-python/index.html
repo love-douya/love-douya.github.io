@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Usage of super in python</title>
+    <meta name="description" content="  Usage of super in pythonUsage of super in pythonSuper(from python2.2) can call method of parent using super(parentclass, self).parentmethod(), self is obje...">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="https://love-douya.github.io/2018/04/22/Usage-of-super-in-python/">
+    <link rel="alternate" type="application/rss+xml" title="Jimmy Tao" href="https://love-douya.github.io/feed.xml ">
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?f8c47f40b3814b55694d492af0de13c3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+    <script>
+    // google analytics
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-115123859-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">Jimmy Tao</a>
+        <small>Algorithm/Machine Learning/Database/Business Intelligence</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>Usage of super in python</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2018-04-22
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#python" title="Category: python" rel="category">python</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#python" title="Tag: python" rel="tag">python</a-->
+        <a href="/tag/#python" title="Tag: python" rel="tag">python</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#usage-of-super-in-python" id="markdown-toc-usage-of-super-in-python">Usage of super in python</a>    <ul>
+      <li><a href="#output" id="markdown-toc-output">Output</a></li>
+      <li><a href="#output-1" id="markdown-toc-output-1">Output</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="usage-of-super-in-python">Usage of super in python</h2>
+
+<p>Super(from python2.2) can call method of parent using super(parentclass, self).parentmethod(), self is object of child class, super can automatically transform object of child class to object of parent class. Keep in mind, super is a class, not a method, once called, the <code class="highlighter-rouge">__init__</code> method of super returns an object of parent class. See sample code below:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Enter A"</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Leave A"</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Enter B"</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Leave B"</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Enter C"</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Leave C"</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">D</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Enter D"</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Leave D"</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="output">Output</h3>
+<blockquote>
+  <ul>
+    <li>Enter D</li>
+    <li>Enter B</li>
+    <li>Enter C</li>
+    <li>Enter A</li>
+    <li>Leave A</li>
+    <li>Leave C</li>
+    <li>Leave B</li>
+    <li>Leave D</li>
+  </ul>
+</blockquote>
+
+<p>Let’s use parentclass.method instead, see code below:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Enter A"</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Leave A"</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Enter B"</span><span class="p">)</span>
+        <span class="n">A</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Leave B"</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Enter C"</span><span class="p">)</span>
+        <span class="n">A</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Leave C"</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">D</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Enter D"</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Leave D"</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="output-1">Output</h3>
+
+<blockquote>
+  <ul>
+    <li>Enter D</li>
+    <li>Enter B</li>
+    <li>Enter A</li>
+    <li>Leave A</li>
+    <li>Leave B</li>
+    <li>Leave D</li>
+  </ul>
+</blockquote>
+
+<p>Why? Class C has been ignored though D is inherited from B and C, let’s see the tree of relationship.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>object
+   |
+   A
+  / \
+ B   C
+  \ /
+   D
+</code></pre></div></div>
+
+<p><strong>Conclusion1:</strong></p>
+
+<ul>
+  <li>
+    <p>We can consider class which contains super() in the heritage tree as a valid node(A is a valid node).</p>
+  </li>
+  <li>
+    <p>If B, C, D has super(), all nodes are valid nodes, the visit sequence is D-&gt;B-&gt;C-&gt;A</p>
+  </li>
+  <li>
+    <p>If D, B has super(), D, B, A are valid nodes, the visit sequence is D-&gt;B-&gt;A</p>
+  </li>
+</ul>
+
+<p>I think you have found the rule, python implements BFS on the valid nodes. Actually, I didn’t find any documentations about this, however, in python source code, we found:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+ <span class="k">static</span> <span class="n">PyObject</span> <span class="o">*</span>
+ <span class="nf">super_getattro</span><span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">name</span><span class="p">)</span>
+ <span class="p">{</span>
+  <span class="n">superobject</span> <span class="o">*</span><span class="n">su</span> <span class="o">=</span> <span class="p">(</span><span class="n">superobject</span> <span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">skip</span> <span class="o">=</span> <span class="n">su</span><span class="o">-&gt;</span><span class="n">obj_type</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">;</span>
+  <span class="err">……</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">skip</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">PyObject</span> <span class="o">*</span><span class="n">mro</span><span class="p">,</span> <span class="o">*</span><span class="n">res</span><span class="p">,</span> <span class="o">*</span><span class="n">tmp</span><span class="p">,</span> <span class="o">*</span><span class="n">dict</span><span class="p">;</span>
+   <span class="n">PyTypeObject</span> <span class="o">*</span><span class="n">starttype</span><span class="p">;</span>
+   <span class="n">descrgetfunc</span> <span class="n">f</span><span class="p">;</span>
+   <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">;</span>
+
+   <span class="n">starttype</span> <span class="o">=</span> <span class="n">su</span><span class="o">-&gt;</span><span class="n">obj_type</span><span class="p">;</span>  <span class="c1">// 获得搜索的起点：super对象的obj_type</span>
+   <span class="n">mro</span> <span class="o">=</span> <span class="n">starttype</span><span class="o">-&gt;</span><span class="n">tp_mro</span><span class="p">;</span>  <span class="c1">// 获得类的mro</span>
+   <span class="err">……</span>
+   <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// 搜索mro中，定位mro中的type</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">PyObject</span> <span class="o">*</span><span class="p">)(</span><span class="n">su</span><span class="o">-&gt;</span><span class="n">type</span><span class="p">)</span> <span class="o">==</span> <span class="n">PyTuple_GET_ITEM</span><span class="p">(</span><span class="n">mro</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+     <span class="k">break</span><span class="p">;</span>
+   <span class="p">}</span>
+   <span class="n">i</span><span class="o">++</span><span class="p">;</span>       <span class="c1">// 切换到mro中的下一个类</span>
+   <span class="n">res</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+   <span class="k">for</span> <span class="p">(;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>   <span class="c1">// 在mro以后的各个命名空间中搜索指定名字</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">PyTuple_GET_ITEM</span><span class="p">(</span><span class="n">mro</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">PyType_Check</span><span class="p">(</span><span class="n">tmp</span><span class="p">))</span>
+     <span class="n">dict</span> <span class="o">=</span> <span class="p">((</span><span class="n">PyTypeObject</span> <span class="o">*</span><span class="p">)</span><span class="n">tmp</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">tp_dict</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">PyClass_Check</span><span class="p">(</span><span class="n">tmp</span><span class="p">))</span>
+     <span class="n">dict</span> <span class="o">=</span> <span class="p">((</span><span class="n">PyClassObject</span> <span class="o">*</span><span class="p">)</span><span class="n">tmp</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">cl_dict</span><span class="p">;</span>
+    <span class="k">else</span>
+     <span class="k">continue</span><span class="p">;</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">PyDict_GetItem</span><span class="p">(</span><span class="n">dict</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+     <span class="n">Py_INCREF</span><span class="p">(</span><span class="n">res</span><span class="p">);</span>
+     <span class="n">f</span> <span class="o">=</span> <span class="n">res</span><span class="o">-&gt;</span><span class="n">ob_type</span><span class="o">-&gt;</span><span class="n">tp_descr_get</span><span class="p">;</span>
+     <span class="k">if</span> <span class="p">(</span><span class="n">f</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">tmp</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">su</span><span class="o">-&gt;</span><span class="n">obj</span><span class="p">,</span>
+       <span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="p">)</span><span class="n">starttype</span><span class="p">);</span>
+      <span class="n">Py_DECREF</span><span class="p">(</span><span class="n">res</span><span class="p">);</span>
+      <span class="n">res</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+     <span class="p">}</span>
+     <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+    <span class="p">}</span>
+   <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">PyObject_GenericGetAttr</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span>
+ <span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>From C code above, we can find PyObject *mro records the sequence of all root classs.</p>
+
+<p><strong>Conclusion2:</strong></p>
+
+<ul>
+  <li>Super() is an unbound type to call parent method, if we need to modify parent class names frequently, it’s not recommended to use bound type(parentclass.method) because we need to travasal the child class to modify all parent class names.</li>
+  <li>Combining unbound type and bound type in a child class is danger because it may cause leak of parent classes.</li>
+</ul>
+
+<p>[!Reference][https://blog.csdn.net/johnsonguo/article/details/585193]</p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2018/04/22/Longest-palindrome/">Longest palindrome(Leetcode-5)</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'https://love-douya.github.io/2018/04/22/Usage-of-super-in-python/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://love-douya.github.io/2018/04/22/Usage-of-super-in-python/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//JimmyTao.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             Algorithm and AI 
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" data-scroll>
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/smooth-scroll.min.js " charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src=" /js/scroll.min.js " charset="utf-8"></script> -->
+  </body>
+
+</html>
