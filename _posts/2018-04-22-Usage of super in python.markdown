@@ -95,7 +95,7 @@ d = D()
 Why? Class C has benn ignored though D is inherited from B and C, let's see the tree of relationship.
 
 
- >   object
+    object
        |
        A
       / \
@@ -104,15 +104,17 @@ Why? Class C has benn ignored though D is inherited from B and C, let's see the 
        D
 
 **Conclusion1:**
-We can consider class which contains super() in the heritage tree as a valid node(A is a valid node). 
+
+* We can consider class which contains super() in the heritage tree as a valid node(A is a valid node). 
 
 * If B, C, D has super(), all nodes are valid nodes, the visit sequence is D->B->C->A
 
 * If D, B has super(), D, B, A are valid nodes, the visit sequence is D->B->A
 
-I think you have found the rule, python implements BFS on the valid nodes. Actually, I didn't find any documentations about this, however, in python source code, we found[^reference]:
+I think you have found the rule, python implements BFS on the valid nodes. Actually, I didn't find any documentations about this, however, in python source code, we found:
 
-```c
+```C
+
  static PyObject *
  super_getattro(PyObject *self, PyObject *name)
  {
@@ -158,6 +160,7 @@ I think you have found the rule, python implements BFS on the valid nodes. Actua
   }
   return PyObject_GenericGetAttr(self, name);
  }
+
 ```
 
 From C code above, we can find PyObject *mro records the sequence of all root classs. 
@@ -167,5 +170,4 @@ From C code above, we can find PyObject *mro records the sequence of all root cl
 * Super() is an unbound type to call parent method, if we need to modify parent class names frequently, it's not recommended to use bound type(parentclass.method) because we need to travasal the child class to modify all parent class names.
 * Combining unbound type and bound type in a child class is danger because it may cause leak of parent classes.
 
-[^reference]: 参考博客[1]
-[1]: https://blog.csdn.net/johnsonguo/article/details/585193
+[1]: [reference:]https://blog.csdn.net/johnsonguo/article/details/585193
