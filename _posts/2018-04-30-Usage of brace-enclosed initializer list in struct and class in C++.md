@@ -2,7 +2,7 @@
 
 layout: post
 
-title: "2018-4-30-Usage of brace-enclosed initializer list in struct and class in C++"
+title: "2018-04-30-Usage of brace-enclosed initializer list in struct and class in C++"
 
 date: 2018-04-30 19:50
 
