@@ -20,7 +20,11 @@ tags: C++
 
 We know `struct` is a constructor in C language while `class` is based on `struct` in C++. However, that doesn't mean `struct` is discarded in C++, inversely, it has been given some new characters in C++, (e.g.:struct can be inherited from struct or class, we can declare public or private variable and function in struct , we can declare constructor and destructor in struct, we can also declare template for struct(compile polymorphism), ...). Based on my experience, the only difference between `struct` and `class` is in `class` we can declare virtual function(runtime polymorphism) while in `struct` we can't. OK, it's not today's point. Today we discuss about the {}. To make explanation be concise Let's see sample below:
 
-```C++
+
+
+
+
+```c++
 #include <iostream>
 using namespace std;
 
@@ -42,7 +46,7 @@ int main(){
 >* pp.number:2
 >* pp.symbol:a
 
-```C++
+```c++
 #include <iostream>
 using namespace std;
 
@@ -67,7 +71,7 @@ int main(){
 
 From results above, we know variable in struct can be initialized by {} but only public variable can be.Let's modify struct A:
 
-```C++
+```c++
 #include <iostream>
 using namespace std;
 
