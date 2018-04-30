@@ -11,7 +11,7 @@ tags: python
 
 ## Usage of super in python
 
-Super(from python2.2) can call method of parent using super(parentclass, self).parentmethod(), self is object of child class, super can automatically transform object of child class to object of parent class. Keep in mind, super is a class, not a method, once called, the `__init__` method of super returns an object of parent class. See sample code below:
+Super(from python2.2) can call method of parent using super(class, self).parentmethod(), self is object of child class, super can automatically transform object of child class to object of parent class. Keep in mind, super is a class, not a method, once called, the `__init__` method of super returns an object of parent class. See sample code below:
 
 
 
