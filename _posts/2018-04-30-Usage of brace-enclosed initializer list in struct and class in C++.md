@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2018-04-30-Usage of brace-enclosed initializer list in struct and class in C++"
+title: "Usage of brace-enclosed initializer list in struct and class in C++"
 date: 2018-04-30 19:50
 categories: C++
 tags: C++
@@ -16,7 +16,7 @@ We know `struct` is a constructor in C language while `class` is based on `struc
 
 
 
-
+### Sample Code1
 ```c++
 #include <iostream>
 using namespace std;
@@ -33,12 +33,13 @@ int main(){
     cout << pp.number << endl << pp.symbol << endl;
 }
 ```
-### Output
+### Output1
 
 
 >* pp.number:2
 >* pp.symbol:a
 
+### Sample Code2
 ```c++
 #include <iostream>
 using namespace std;
@@ -55,7 +56,7 @@ int main(){
     cout << pp.number << endl << pp.symbol << endl;
 }
 ```
-### Output
+### Output2
 
 
 >* error: could not convert '{2, "a"}' from '<brace-enclosed initializer list>' to 'A'
@@ -64,6 +65,7 @@ int main(){
 
 From results above, we know variable in struct can be initialized by {} but only public variable can be.Let's modify struct A:
 
+### Sample Code3
 ```c++
 #include <iostream>
 using namespace std;
@@ -81,7 +83,7 @@ int main(){
     cout << pp.number << endl << pp.symbol << endl;
 }
 ```
-### Output
+### Output3
 
 >* error: could not convert '{2, "a"}' from '<brace-enclosed initializer list>' to 'A'
 
