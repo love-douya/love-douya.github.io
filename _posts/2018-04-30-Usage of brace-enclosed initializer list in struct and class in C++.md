@@ -72,8 +72,8 @@ using namespace std;
 
 class A{
 public:
-    A();
-    virtual ~A();
+    A(){};
+    virtual ~A(){};
     int number = 1;
     const char* symbol = "b"; 
 };
