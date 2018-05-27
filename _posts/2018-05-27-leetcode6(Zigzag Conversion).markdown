@@ -13,7 +13,7 @@ tags: Algorithm Leetcode
 
 The string `"PAYPALISHIRING"` is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
 
-```
+```c
 P---A---H---N
 A-P-L-S-I-I-G
 Y---I---R
@@ -36,7 +36,7 @@ Write the code that will take a string and make this conversion given a number o
 >* Output: "PINALSIGYAHRPI"
 >* Explanation:
 
-> ```
+```c
 P-----I----N
 A---L-S--I-G
 Y-A---H-R
