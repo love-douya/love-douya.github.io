@@ -9,8 +9,11 @@ tags: Machine-Learning NLTK Spacy
 * content
 {:toc}
 
-# For NLTK, refer to the sample code and explanation here: 
-![NLTK](https://github.com/love-douya/Machine-Learning/blob/master/NLTK_Learning.py)
-# For Spacy, refer to the sample code and explanation here: 
-![Spacy](https://github.com/love-douya/Machine-Learning/blob/master/SpaCy_Learning.py)
+## For NLTK, refer to the sample code and explanation here: 
+[NLTK][1]
+## For Spacy, refer to the sample code and explanation here: 
+[Spacy][2]
+
+[1]: https://github.com/love-douya/Machine-Learning/blob/master/NLTK_Learning.py
+[2]: https://github.com/love-douya/Machine-Learning/blob/master/SpaCy_Learning.py
 
