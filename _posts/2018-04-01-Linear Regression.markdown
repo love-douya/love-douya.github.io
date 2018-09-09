@@ -2,8 +2,8 @@
 layout: post
 title:  "Linear Regression"
 date:   2018-4-1 15:28:00
-categories: Algorithm Machine Learing
-tags: Algorithm Machine Learning Linear Regression
+categories: Algorithm Machine-Learning
+tags: Algorithm Machine-Learning Linear Regression
 mathjax: true
 ---
 
